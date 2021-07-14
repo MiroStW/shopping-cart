@@ -1,76 +1,84 @@
-html,
-body {
-  height: 100%;
-}
-
 body {
   background: black;
+  margin: 0;
   color: white;
   font-family: sans-serif;
   font-size: 16px;
+  font-weight: 300;
 }
 
 #root {
-  display: grid;
-  grid-template-rows: max-content max-content;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  max-width: 533px;
+  max-width: 720px;
   margin: 0 auto;
-  height: 100%;
 }
 
-h1 {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 15px;
-  font-size: xx-large;
-  border-bottom: 1px white dashed;
-}
-
-#cards {
-  grid-column: 1 / -1;
+#logo {
   display: grid;
-  grid-template-rows: repeat(auto-fit, 172px);
-  grid-template-columns: repeat(auto-fit, 122px);
-  gap: 15px;
+  grid-template-columns: 35px max-content;
+  gap: 10px;
+  color: #61dafb;
+  font-weight: 700;
+  padding: 4px;
+  text-decoration: none;
+}
+
+#icon {
+  background-image: url("./react_logo.svg");
   height: 100%;
-  position: relative;
+  background-repeat: no-repeat;
 }
 
-.card {
-  border: 1px white dashed;
-  border-radius: 5%;
-  padding: 10px;
+.vcenter {
+  align-self: center;
 }
 
-.card:hover {
-  border: solid;
+#nav {
+  border-bottom: 1px white dashed;
+  display: grid;
+  grid-template-columns: 210px repeat(auto-fit, minmax(100px, 1fr));
+  grid-auto-flow: column;
+  height: 35px;
+  margin: 0 0 15px 0;
+  padding: 10px 10px 15px 5px;
 }
 
-.card p {
+.navitem {
+  border-top: 2px transparent solid;
   text-align: center;
+  display: grid;
+  padding: 0 5px;
 }
 
-#result {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
+a.active {
+  border-bottom: 2px #61dafb solid;
+  color: #61dafb;
 }
 
-#result.won {
-  background-image: url("./wonmsg.png");
+.navitem:hover {
+  border-color: #61dafb;
 }
 
-#result.lost {
-  background-image: url("./lostmsg.png");
-}
-
-#result div {
-  text-align: center;
+.navitem span {
+  border-radius: 10px;
+  padding: 1px 4px;
+  font-size: 10px;
+  background-color: red;
+  color: white;
   position: relative;
-  top: 10%;
+  top: -8px;
+  left: -5px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 65%);
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  padding-bottom: 4px;
+}
+
+#container {
+  display: grid;
 }
 
 button {

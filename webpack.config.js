@@ -7,6 +7,7 @@ module.exports = {
   output: {
     filename: "[name].js", // filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, "docs/"),
+    publicPath: "/",
     clean: true,
   },
   module: {
@@ -32,7 +33,16 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
     ],
+  },
+  devServer: {
+    historyApiFallback: true,
+    contentBase: "./docs",
+    // publicPath: "/odin_project/react/dist/",
   },
   plugins: [
     new HtmlWebpackPlugin({
