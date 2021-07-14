@@ -83,9 +83,44 @@ a {
 
 button {
   background-color: black;
+  color: white;
   border: white 1px solid;
   border-radius: 4px;
-  color: wheat;
   line-height: 18px;
   margin-right: 10px;
+}
+
+button:hover {
+  color: #61dafb;
+  cursor: pointer;
+}
+
+.productList {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(172px, min-content));
+  grid-template-columns: repeat(auto-fit, 122px);
+  gap: 15px;
+}
+
+.productThumb {
+  position: relative;
+  border: 1px white dashed;
+  border-radius: 5%;
+  padding: 10px 10px 32px;
+  cursor: pointer;
+}
+
+.productThumb:hover {
+  border: solid 1px;
+}
+
+.productThumb p {
+  text-align: center;
+}
+
+.productThumb button {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

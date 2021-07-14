@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import logo from "../34988480-a4e8-11ea-8b13-b51f23ac7400.jpeg";
 
 const App = () => {
-  const [x, setX] = useState(0);
-
   useEffect(() => {}, []);
 
   return (
