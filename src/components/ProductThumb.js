@@ -1,17 +1,23 @@
 import React, { useEffect } from "react";
+import { Link, useRouteMatch } from "react-router-dom";
 
 const ProductThumb = (props) => {
+  let { path, url } = useRouteMatch();
+
   useEffect(() => {
-    console.log(props.product);
+    // console.log(props.product);
   }, []);
+
   return (
-    <div className="productThumb">
-      <img src={props.product.imgUrl} alt="" />
-      <p>{props.product.name}</p>
-      <div>
-        <button>Add to cart</button>
+    <Link to={`${url}/${props.product.id}`}>
+      <div className="productThumb">
+        <img src={props.product.imgUrl} alt="" />
+        <p>{props.product.name}</p>
+        <div>
+          <button>Add to cart</button>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
