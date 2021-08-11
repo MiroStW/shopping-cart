@@ -3,32 +3,34 @@ import ProductThumb from "./ProductThumb";
 
 const Products = () => {
   const [loading, setLoading] = useState(false);
-  const [pokemons, setPokemons] = useState({});
+  const [products, setProducts] = useState({});
 
-  const showPokemon = () =>
-    Object.keys(pokemons).map((pokemon) => (
-      <ProductThumb key={pokemon} product={pokemons[pokemon]} />
+  const showProducts = () =>
+    Object.keys(products).map((product) => (
+      <ProductThumb key={product} product={products[product]} />
     ));
 
-  const getPokemon = async (count) => {
+  const getProducts = async (count) => {
     // style them as tiles (look up library project)
     setLoading(true);
 
-    const pokemonIds = [];
+    const productIds = [];
     for (let i = 0; i < count; i += 1) {
-      pokemonIds.push(Math.floor(Math.random() * 898));
+      productIds.push(Math.floor(Math.random() * 898));
     }
 
     await Promise.all(
-      pokemonIds.map(async (id, i) => {
+      productIds.map(async (id, i) => {
         let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
           mode: "cors",
         });
         response = await response.json();
-        setPokemons((prevState) => ({
+        setProducts((prevState) => ({
           ...prevState,
           [i]: {
-            name: response.name,
+            id: response.id,
+            name:
+              response.name.charAt(0).toUpperCase() + response.name.slice(1),
             imgUrl: response.sprites.front_default,
           },
         }));
@@ -38,18 +40,21 @@ const Products = () => {
   };
 
   useEffect(() => {
-    getPokemon(10);
+    getProducts(10);
   }, []);
 
   useEffect(() => {
     // console.log(pokemons);
-  }, [pokemons]);
+  }, [products]);
 
   return (
     <>
       <h1>Hello from Products</h1>
-      <div className="productList">
-        {loading ? <div>loading...</div> : showPokemon()}
+      <div className="productOverview">
+        {loading ? <div>loading...</div> : showProducts()}
+      </div>
+      <div className="productDetails">
+        {loading ? <div>loading...</div> : showProducts()}
       </div>
     </>
   );
