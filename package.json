@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "build:prod": "webpack -p",
+    "build": "npx webpack",
+    "build:prod": "npx webpack --mode=production",
     "serve": "webpack serve"
   },
   "author": "",
