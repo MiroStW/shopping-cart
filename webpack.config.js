@@ -6,7 +6,7 @@ module.exports = {
   entry: ["./src/index.js", "./src/style.css"],
   output: {
     filename: "[name].js", // filename: '[name].[contenthash].js',
-    path: path.resolve(__dirname, "docs/"),
+    path: path.resolve(__dirname, "build/"),
     publicPath: "/",
     clean: true,
   },
@@ -41,7 +41,6 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: "./docs",
     // publicPath: "/odin_project/react/dist/",
   },
   plugins: [
@@ -50,6 +49,7 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
+  devtool: "eval-source-map",
   optimization: {
     moduleIds: "deterministic",
     runtimeChunk: "single",
