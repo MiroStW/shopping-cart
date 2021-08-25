@@ -45,8 +45,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Memory cards game",
+      title: "Shopping cart app",
       template: "./src/index.html",
+    }),
+    new HtmlWebpackPlugin({
+      title: "Shopping cart app - 404",
+      template: "./src/404.html",
+      filename: "404.html",
     }),
   ],
   devtool: "eval-source-map",
