@@ -7,11 +7,13 @@ import ProductDetails from "./ProductDetails";
 import Nav from "./Nav";
 
 const Routes = () => (
-  <Router>
+  <Router basename="/shopping-cart">
     <Nav />
     <div id="container">
       <Switch>
-        <Route path={`/`} exact component={App} />
+        <Route path={`/`} exact>
+          <App />
+        </Route>
         <Route path={`/products`} exact component={Products} />
         <Route path={`/products/:id`} component={ProductDetails} />
         <Route path={`/cart`} component={Cart} />

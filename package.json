@@ -2,7 +2,7 @@
   "name": "shopping-card-app",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://mirostw.github.io/shopping-cart",
+  "homepage": "/shopping-cart/",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
