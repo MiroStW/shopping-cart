@@ -1,44 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import ProductThumb from "./ProductThumb";
+import useGetRemotePokemonData from "./useGetRemotePokemonData";
 
 const ProductDetails = (props) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [product, setProduct] = useState({});
-  const [abilities, setAbilities] = useState([]);
-
   const { id } = useParams();
-
-  const showProduct = () => (
-    <div className="productThumb">
-      <img src={product.imgUrl} alt="" />
-      <p>{product.name}</p>
-      <div>
-        <button>Add to cart</button>
-      </div>
-    </div>
-  );
-
-  useEffect(() => {
-    const getProduct = async () => {
-      // style them as tiles (look up library project)
-
-      let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
-        mode: "cors",
-      });
-      response = await response.json();
-      setProduct({
-        id: response.id,
-        name: response.name.charAt(0).toUpperCase() + response.name.slice(1),
-        imgUrl: response.sprites.front_default,
-        abilities: response.abilities,
-      });
-    };
-
-    setIsLoading(true);
-    getProduct();
-    setIsLoading(false);
-  }, [id]);
+  const [abilities, setAbilities] = useState([]);
+  const [[product], isLoading] = useGetRemotePokemonData(id);
 
   useEffect(() => {
     const getAbility = async (url) => {
@@ -60,44 +27,54 @@ const ProductDetails = (props) => {
         },
       ]);
     };
-
-    if (product.abilities) {
-      setIsLoading(true);
-      product.abilities.map((ability) => getAbility(ability.ability.url));
-      setIsLoading(false);
-    }
-  }, [product.abilities]);
+    if (product)
+      if (product.abilities) {
+        // setIsLoading(true);
+        product.abilities.map((ability) => getAbility(ability.ability.url));
+        // setIsLoading(false);
+      }
+  }, [product]);
 
   useEffect(() => {
     // console.log(abilities);
   }, [abilities]);
-  // TODO: ABILITIES LOADING?!!
+  // TODO: USE custom hook for this
+
+  useEffect(() => {
+    console.log(isLoading);
+  }, [isLoading]);
 
   return (
     <>
-      <h1>{product.name}</h1>
-      <div>
-        <Link to={`/products`}>Back to products</Link>
-      </div>
-      <div className="productDetails">
-        {isLoading ? (
-          <div>loading...</div>
-        ) : (
-          <>
+      {isLoading ? (
+        <div>loading...</div>
+      ) : (
+        <>
+          <h1>{product && product.name}</h1>
+          <div>
+            <Link to={`/products`}>
+              &lt;-
+              <span style={{ textDecoration: "underline" }}>
+                Back to products
+              </span>
+            </Link>
+          </div>
+          <div className="productDetails">
+            <img src={product && product.imgUrl} alt="" />
             <div>
-              <ProductThumb product={product} />
+              <button>Add to cart</button>
             </div>
             <div>
               {abilities.map((ability, i) => (
-                <div key={i}>
+                <div key={i} className="productThumb">
                   <div>{ability.name}</div>
                   <div>{ability.effect}</div>
                 </div>
               ))}
             </div>
-          </>
-        )}
-      </div>
+          </div>
+        </>
+      )}
     </>
   );
 };
