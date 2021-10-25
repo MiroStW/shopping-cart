@@ -7,7 +7,7 @@ module.exports = {
   output: {
     filename: "[name].js", // filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, "build/"),
-    // publicPath: "/",
+    publicPath: "/",
     clean: true,
   },
   module: {
@@ -18,7 +18,19 @@ module.exports = {
       },
       {
         test: /\.(jpg|png)$/,
-        use: "url-loader",
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.tsx?$/,
+        include: path.resolve("src"),
+        use: ["babel-loader", "ts-loader"],
       },
       {
         test: /\.m?js$/,
@@ -42,6 +54,10 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     // publicPath: "/odin_project/react/dist/",
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+    modules: ["src", "node_modules"],
   },
   plugins: [
     new HtmlWebpackPlugin({
