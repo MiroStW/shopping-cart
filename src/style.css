@@ -136,5 +136,8 @@ button:hover {
 }
 
 .productImg {
-  min-width: -webkit-fill-available;
+  min-width: 50%;
+  margin-left: 50%;
+  margin-top: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
