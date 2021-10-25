@@ -1,19 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import useGetProducts from "./useGetProducts";
 import ProductThumb from "./ProductThumb";
 
 const Products = () => {
-  const [products, isLoading] = useGetProducts(10);
+  const { isLoading, error, products } = useGetProducts(10);
 
   return (
     <>
       <h1>Hello from Products</h1>
+      {error && <p>Oops, something went worng: {error}</p>}
       <div className="productOverview">
         {isLoading ? (
           <div>loading...</div>
         ) : (
-          Object.keys(products).map((product) => (
-            <ProductThumb key={product} product={products[product]} />
+          products.map((product, i) => (
+            <ProductThumb key={i} product={product} />
           ))
         )}
       </div>

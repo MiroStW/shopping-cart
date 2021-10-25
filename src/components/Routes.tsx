@@ -7,7 +7,8 @@ import ProductDetails from "./ProductDetails";
 import Nav from "./Nav";
 
 const Routes = () => (
-  <Router basename="/shopping-cart">
+  // <Router basename="/shopping-cart">
+  <Router>
     <Nav />
     <div id="container">
       <Switch>
