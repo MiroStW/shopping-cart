@@ -88,26 +88,34 @@ const ProductDetails = () => {
           </div>
           <h1>{pokemon.name}</h1>
           <div className="productDetails">
-            <img src={pokemon.imgUrl} alt="" />
-            <span>Height: {pokemon.height}</span>
-            <div>
-              <button>Add to cart</button>
-            </div>
-            {abilitiesLoading ? (
-              <div>loading...</div>
-            ) : (
+            <div className="productSection">
               <div>
-                {abilities &&
-                  abilities.map(
-                    (ability: { [index: string]: any }, i: number) => (
-                      <div key={i} className="productThumb">
-                        <div>{ability.name}</div>
-                        <div>{ability.effect}</div>
-                      </div>
-                    )
-                  )}
+                <img src={pokemon.imgUrl} alt="" className="productImg" />
               </div>
-            )}
+              <div>
+                <p>
+                  <b>Height:</b> {pokemon.height}
+                </p>
+                {abilitiesLoading ? (
+                  <div>loading...</div>
+                ) : (
+                  <div>
+                    {abilities &&
+                      abilities.map(
+                        (ability: { [index: string]: any }, i: number) => (
+                          <div key={i}>
+                            <p>
+                              <b>{ability.name}</b>
+                            </p>
+                            <p>{ability.effect}</p>
+                          </div>
+                        )
+                      )}
+                  </div>
+                )}
+                <button>Add to cart</button>
+              </div>
+            </div>
           </div>
         </>
       )}

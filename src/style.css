@@ -128,3 +128,13 @@ button:hover {
   transform: translate(-50%, 0);
   width: fit-content;
 }
+
+.productSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+}
+
+.productImg {
+  min-width: -webkit-fill-available;
+}
