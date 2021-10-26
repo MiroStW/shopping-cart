@@ -1,14 +1,5 @@
 import { useEffect, useState } from "react";
-
-type DataReturnType = {
-  isLoading: boolean;
-  error: string | null;
-  data:
-    | {
-        [index: string]: any;
-      }[]
-    | null;
-};
+import { DataReturnType } from "types/index";
 
 const useGetRemoteData = ([...urls]): DataReturnType => {
   const [data, setData] = useState<{}[] | null>(null);

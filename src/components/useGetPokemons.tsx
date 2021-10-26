@@ -1,19 +1,6 @@
 import { useEffect, useState } from "react";
 import useGetRemoteData from "./useGetRemoteData";
-
-// type DataReturnType = {
-//   isLoading: boolean;
-//   error: string | null;
-//   pokemons: Pokemon[] | null;
-// };
-
-interface Pokemon {
-  id: number;
-  name: string;
-  imgUrl: string;
-  height: number;
-  abilities: {}[];
-}
+import { Pokemon } from "types/index";
 
 const useGetPokemons = (ids: number[]) => {
   const { isLoading, error, data } = useGetRemoteData(
