@@ -1,20 +1,38 @@
-import React from "react";
-import logo from "../shop_logo.jpeg";
+import { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Main from "./Main";
+import Cart from "./Cart";
+import Products from "./Products";
+import ProductDetails from "./ProductDetails";
+import Nav from "./Nav";
 
-const App = () => (
-  <>
-    <h1>Shopping cart App</h1>
-    <p>
-      This is the homepage of an awesome online shop! We&apos;ve got a great
-      name & slogan:
-    </p>
-    <img src={logo} alt="" />
-  </>
-);
+interface CartItem {
+  product: {};
+  quantity: number;
+}
+
+const App = () => {
+  // <Router basename="/shopping-cart">
+  // set this dependant on environment?
+
+  const [cart, setCart] = useState<CartItem[] | ([] & { length: 0 })>([]);
+
+  return (
+    <Router>
+      <Nav cart={cart} />
+      <div id="container">
+        <Switch>
+          <Route path={`/`} exact>
+            <Main />
+          </Route>
+          <Route path={`/products`} exact component={Products} />
+          <Route path={`/products/:id`} component={ProductDetails} />
+          <Route path={`/cart`} component={Cart} />
+          <Route path={`/Z`} />
+        </Switch>
+      </div>
+    </Router>
+  );
+};
 
 export default App;
-
-// project outline:
-// You should have at least have two pages (a homepage and a shop page, which
-// includes your shopping cart). Let a user navigate between the pages with a
-// navigation bar, which will be shown on both routes.
