@@ -2,31 +2,7 @@ import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import useGetPokemons from "./useGetPokemons";
 import useGetAbilities from "./useGetAbilities";
-
-// type PokemonType = {
-//   isLoading: boolean;
-//   error: string | null;
-//   pokemons: Array<object> | null;
-// };
-
-// const gotPicachu: PokemonType = {
-//   isLoading: false,
-//   error: null,
-//   pokemons: [
-//     {
-//       name: "picachu",
-//       height: 3,
-//     },
-//   ],
-// };
-
-// if (gotPicachu.pokemons) {
-//   const {
-//     isLoading: isLoadingTest,
-//     error: errorTest,
-//     pokemons: [pichachu],
-//   } = gotPicachu;
-// }
+import AddToCartButton from "./AddToCartButton";
 
 const ProductDetails = () => {
   const { id }: any = useParams();
@@ -113,7 +89,7 @@ const ProductDetails = () => {
                       )}
                   </div>
                 )}
-                <button>Add to cart</button>
+                <AddToCartButton />
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
+import AddToCartButton from "./AddToCartButton";
 
 interface ProductThumbProps {
   product: {
@@ -18,7 +19,7 @@ const ProductThumb = ({ product }: ProductThumbProps) => {
         <img src={product.imgUrl} alt="" />
         <p>{product.name}</p>
         <div>
-          <button>Add to cart</button>
+          <AddToCartButton />
         </div>
       </div>
     </Link>
