@@ -1,16 +1,14 @@
 import React, { useEffect } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
+import { CartItem, Pokemon } from "types";
 import AddToCartButton from "./AddToCartButton";
 
-interface ProductThumbProps {
-  product: {
-    id: number;
-    imgUrl: string;
-    name: string;
-  };
+interface ProductThumbPropType {
+  product: Pokemon;
+  addToCart: (product: Pokemon, quantity: number) => void;
 }
 
-const ProductThumb = ({ product }: ProductThumbProps) => {
+const ProductThumb = ({ product, addToCart }: ProductThumbPropType) => {
   const { url } = useRouteMatch();
 
   return (
@@ -19,7 +17,7 @@ const ProductThumb = ({ product }: ProductThumbProps) => {
         <img src={product.imgUrl} alt="" />
         <p>{product.name}</p>
         <div>
-          <AddToCartButton />
+          <AddToCartButton product={product} addToCart={addToCart} />
         </div>
       </div>
     </Link>

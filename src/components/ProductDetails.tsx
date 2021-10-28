@@ -3,8 +3,13 @@ import { Link, useParams } from "react-router-dom";
 import useGetPokemons from "./useGetPokemons";
 import useGetAbilities from "./useGetAbilities";
 import AddToCartButton from "./AddToCartButton";
+import { Pokemon } from "types";
 
-const ProductDetails = () => {
+const ProductDetails = ({
+  addToCart,
+}: {
+  addToCart: (product: Pokemon, quantity: number) => void;
+}) => {
   const { id }: any = useParams();
   const {
     isLoading: pokemonLoading,
@@ -89,7 +94,7 @@ const ProductDetails = () => {
                       )}
                   </div>
                 )}
-                <AddToCartButton />
+                <AddToCartButton product={pokemon} addToCart={addToCart} />
               </div>
             </div>
           </div>

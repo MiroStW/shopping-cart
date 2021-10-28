@@ -5,30 +5,48 @@ import Cart from "./Cart";
 import Products from "./Products";
 import ProductDetails from "./ProductDetails";
 import Nav from "./Nav";
-
-interface CartItem {
-  product: {};
-  quantity: number;
-}
+import { CartItem, Pokemon } from "types";
 
 const App = () => {
   // <Router basename="/shopping-cart">
   // set this dependant on environment?
 
-  const [cart, setCart] = useState<CartItem[] | ([] & { length: 0 })>([]);
+  const [cartItems, setCartItems] = useState<CartItem[] | ([] & { length: 0 })>(
+    []
+  );
+
+  const addToCart = (product: Pokemon, quantity: number): void => {
+    const existingProductPosition = cartItems.findIndex(
+      (item) => item.product.id === product.id
+    );
+    if (existingProductPosition === -1) {
+      setCartItems((prevState) => [...prevState, { product, quantity }]);
+    } else {
+      setCartItems((prevState) => {
+        prevState[existingProductPosition].quantity += quantity;
+        return prevState;
+      });
+    }
+  };
 
   return (
     <Router>
-      <Nav cart={cart} />
+      <Nav cartQuantity={cartItems.length} />
       <div id="container">
         <Switch>
           <Route path={`/`} exact>
             <Main />
           </Route>
-          <Route path={`/products`} exact component={Products} />
-          <Route path={`/products/:id`} component={ProductDetails} />
-          <Route path={`/cart`} component={Cart} />
-          <Route path={`/Z`} />
+          <Route path={`/products`} exact>
+            <Products addToCart={addToCart} />
+          </Route>
+          <Route path={`/products/:id`}>
+            <ProductDetails addToCart={addToCart} />
+          </Route>
+          <Route path={`/cart`}>
+            <Cart />
+          </Route>
+          <Route path={`/Z`}></Route>
         </Switch>
       </div>
     </Router>

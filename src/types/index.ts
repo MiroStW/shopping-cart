@@ -17,8 +17,6 @@ export interface Pokemon {
 }
 
 export interface CartItem {
-  product: {};
+  product: Pokemon;
   quantity: number;
 }
-
-export type Cart = CartItem[] | ([] & { length: 0 });

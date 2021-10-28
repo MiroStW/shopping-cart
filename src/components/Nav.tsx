@@ -1,8 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Cart } from "types/index";
 
-const Nav = ({ cart }: { cart: Cart }) => (
+const Nav = ({ cartQuantity }: { cartQuantity: number }) => (
   <div id="nav">
     <Link to="/" id="logo">
       <div id="icon"></div>
@@ -15,7 +14,7 @@ const Nav = ({ cart }: { cart: Cart }) => (
     </div>
     <div className="navitem">
       <NavLink to="/cart" className="vcenter">
-        Cart <span>{cart.length}</span>
+        Cart <span>{cartQuantity}</span>
       </NavLink>
     </div>
     <div className="navitem">

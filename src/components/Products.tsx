@@ -1,8 +1,13 @@
 import React from "react";
 import useGetProducts from "./useGetProducts";
 import ProductThumb from "./ProductThumb";
+import { Pokemon } from "types";
 
-const Products = () => {
+const Products = ({
+  addToCart,
+}: {
+  addToCart: (product: Pokemon, quantity: number) => void;
+}) => {
   const { isLoading, error, products } = useGetProducts(10);
 
   return (
@@ -14,7 +19,7 @@ const Products = () => {
           <div>loading...</div>
         ) : (
           products.map((product, i) => (
-            <ProductThumb key={i} product={product} />
+            <ProductThumb key={i} product={product} addToCart={addToCart} />
           ))
         )}
       </div>
