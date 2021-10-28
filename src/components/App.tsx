@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Main from "./Main";
 import Cart from "./Cart";
@@ -24,14 +24,18 @@ const App = () => {
     } else {
       setCartItems((prevState) => {
         prevState[existingProductPosition].quantity += quantity;
-        return prevState;
+        return [...prevState];
       });
     }
   };
 
+  const totalCartQuantity = () =>
+    // @ts-ignore: ts bug https://github.com/microsoft/TypeScript/issues/36390
+    cartItems.reduce((sum: number, item: CartItem) => sum + item.quantity, 0);
+
   return (
     <Router>
-      <Nav cartQuantity={cartItems.length} />
+      <Nav totalCartQuantity={totalCartQuantity()} />
       <div id="container">
         <Switch>
           <Route path={`/`} exact>
