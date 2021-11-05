@@ -104,7 +104,7 @@ button:hover {
 .productThumb {
   position: relative;
   border: 1px white dashed;
-  border-radius: 4%;
+  /* border-radius: 4%; */
   padding: 10px 10px 32px;
   display: grid;
   grid-template-rows: min-content max-content min-content;
@@ -140,4 +140,17 @@ button:hover {
   margin-left: 50%;
   margin-top: 50%;
   transform: translateX(-50%) translateY(-50%);
+}
+
+.cartItem {
+  border: 1px white dashed;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: min-content max-content;
+  grid-column-gap: 10px;
+}
+
+.quantityPicker select {
+  width: 30px;
 }
