@@ -5,15 +5,25 @@ import Cart from "./Cart";
 import Products from "./Products";
 import ProductDetails from "./ProductDetails";
 import Nav from "./Nav";
-import { CartItem, Pokemon } from "types";
+import { CartItemType, Pokemon } from "types";
 
 const App = () => {
   // <Router basename="/shopping-cart">
   // set this dependant on environment?
 
-  const [cartItems, setCartItems] = useState<CartItem[] | ([] & { length: 0 })>(
-    []
-  );
+  const [cartItems, setCartItems] = useState<
+    CartItemType[] | ([] & { length: 0 })
+  >([]);
+
+  useEffect(() => {
+    if (localStorage.getItem("shopping-cart"))
+      setCartItems(JSON.parse(localStorage.getItem("shopping-cart") as string));
+  }, []);
+
+  useEffect(() => {
+    if (cartItems.length > 0)
+      localStorage.setItem("shopping-cart", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const addToCart = (product: Pokemon, quantity: number): void => {
     const existingProductPosition = cartItems.findIndex(
@@ -48,7 +58,7 @@ const App = () => {
             <ProductDetails addToCart={addToCart} />
           </Route>
           <Route path={`/cart`}>
-            <Cart />
+            <Cart cartItems={cartItems} setCartItems={setCartItems} />
           </Route>
           <Route path={`/Z`}></Route>
         </Switch>
