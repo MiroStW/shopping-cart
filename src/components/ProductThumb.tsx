@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
-import { CartItem, Pokemon } from "types";
+import { CartItemType, Pokemon } from "types";
 import AddToCartButton from "./AddToCartButton";
 
 interface ProductThumbPropType {

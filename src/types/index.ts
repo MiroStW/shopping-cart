@@ -16,7 +16,7 @@ export interface Pokemon {
   abilities: {}[];
 }
 
-export interface CartItem {
+export interface CartItemType {
   product: Pokemon;
   quantity: number;
 }
