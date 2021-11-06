@@ -1,14 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { CartItemType, Pokemon } from "types";
-import AddToCartButton from "./AddToCartButton";
 
 interface ProductThumbPropType {
   product: Pokemon;
-  addToCart: (product: Pokemon, quantity: number) => void;
+  addToCartButton: React.ReactNode;
 }
 
-const ProductThumb = ({ product, addToCart }: ProductThumbPropType) => {
+const ProductThumb = ({ product, addToCartButton }: ProductThumbPropType) => {
   const { url } = useRouteMatch();
 
   return (
@@ -16,9 +15,7 @@ const ProductThumb = ({ product, addToCart }: ProductThumbPropType) => {
       <div className="productThumb">
         <img src={product.imgUrl} alt="" />
         <p>{product.name}</p>
-        <div>
-          <AddToCartButton product={product} addToCart={addToCart} />
-        </div>
+        <div>{addToCartButton}</div>
       </div>
     </Link>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import useGetProducts from "./useGetProducts";
 import ProductThumb from "./ProductThumb";
 import { Pokemon } from "types";
+import AddToCartButton from "./AddToCartButton";
 
 const Products = ({
   addToCart,
@@ -19,7 +20,13 @@ const Products = ({
           <div>loading...</div>
         ) : (
           products.map((product, i) => (
-            <ProductThumb key={i} product={product} addToCart={addToCart} />
+            <ProductThumb
+              key={i}
+              product={product}
+              addToCartButton={
+                <AddToCartButton product={product} addToCart={addToCart} />
+              }
+            />
           ))
         )}
       </div>
