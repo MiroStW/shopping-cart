@@ -5,11 +5,7 @@ import useGetAbilities from "./useGetAbilities";
 import AddToCartButton from "./AddToCartButton";
 import { Pokemon } from "types";
 
-const ProductDetails = ({
-  addToCart,
-}: {
-  addToCart: (product: Pokemon, quantity: number) => void;
-}) => {
+const ProductDetails = () => {
   const { id }: any = useParams();
   const {
     isLoading: pokemonLoading,
@@ -94,7 +90,7 @@ const ProductDetails = ({
                       )}
                   </div>
                 )}
-                <AddToCartButton product={pokemon} addToCart={addToCart} />
+                <AddToCartButton product={pokemon} />
               </div>
             </div>
           </div>

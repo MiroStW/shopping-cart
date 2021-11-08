@@ -1,21 +1,9 @@
 import { Link } from "react-router-dom";
 import { CartItemType } from "types";
+import DeleteItemButton from "./DeleteItemButton";
 import QuantityPicker from "./QuantityPicker";
 
-interface CartItemPropType {
-  cartItem: CartItemType;
-  itemIndex: number;
-  setCartItems: (
-    value: React.SetStateAction<
-      | ([] & {
-          length: 0;
-        })
-      | CartItemType[]
-    >
-  ) => void;
-}
-
-const CartItem = ({ cartItem, itemIndex, setCartItems }: CartItemPropType) => (
+const CartItem = ({ cartItem }: { cartItem: CartItemType }) => (
   <div className="cartItem">
     <div>
       <Link to={"/products/" + cartItem.product.id}>
@@ -30,12 +18,9 @@ const CartItem = ({ cartItem, itemIndex, setCartItems }: CartItemPropType) => (
       </p>
       <p>
         {/* add remove function & quantity changer */}
-        <QuantityPicker
-          item={cartItem}
-          itemIndex={itemIndex}
-          setCartItems={setCartItems}
-        />{" "}
-        - <span onClick={() => {}}>delete</span>
+        <QuantityPicker item={cartItem} />
+        &nbsp;
+        <DeleteItemButton item={cartItem} />
       </p>
     </div>
   </div>

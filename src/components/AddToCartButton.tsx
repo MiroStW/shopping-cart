@@ -1,13 +1,19 @@
 import React from "react";
-import { CartItemType, Pokemon } from "types";
+import { Pokemon } from "types";
+import { useCart } from "./cartContext";
 
-interface AddToCartButtonPropType {
-  product: Pokemon;
-  addToCart: (product: Pokemon, quantity: number) => void;
-}
+const AddToCartButton = ({ product }: { product: Pokemon }) => {
+  const { dispatch } = useCart();
 
-const AddToCartButton = ({ product, addToCart }: AddToCartButtonPropType) => (
-  <button onClick={() => addToCart(product, 1)}>Add to cart</button>
-);
+  return (
+    <button
+      onClick={() =>
+        dispatch({ type: "ADD_TO_CART", product: product, quantity: 1 })
+      }
+    >
+      Add to cart
+    </button>
+  );
+};
 
 export default AddToCartButton;

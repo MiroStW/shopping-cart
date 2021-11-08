@@ -1,14 +1,9 @@
 import React from "react";
 import useGetProducts from "./useGetProducts";
 import ProductThumb from "./ProductThumb";
-import { Pokemon } from "types";
 import AddToCartButton from "./AddToCartButton";
 
-const Products = ({
-  addToCart,
-}: {
-  addToCart: (product: Pokemon, quantity: number) => void;
-}) => {
+const Products = () => {
   const { isLoading, error, products } = useGetProducts(10);
 
   return (
@@ -23,9 +18,7 @@ const Products = ({
             <ProductThumb
               key={i}
               product={product}
-              addToCartButton={
-                <AddToCartButton product={product} addToCart={addToCart} />
-              }
+              addToCartButton={<AddToCartButton product={product} />}
             />
           ))
         )}

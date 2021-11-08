@@ -1,28 +1,14 @@
 import { CartItemType } from "types";
+import { useCart } from "./cartContext";
 
-interface QuantityPickerPropType {
-  item: CartItemType;
-  itemIndex: number;
-  setCartItems: (
-    value: React.SetStateAction<
-      | ([] & {
-          length: 0;
-        })
-      | CartItemType[]
-    >
-  ) => void;
-}
+const QuantityPicker = ({ item }: { item: CartItemType }) => {
+  const { dispatch } = useCart();
 
-const QuantityPicker = ({
-  item,
-  itemIndex,
-  setCartItems,
-}: QuantityPickerPropType) => {
   const updateQuantity = (e: React.ChangeEvent<HTMLSelectElement>) =>
-    setCartItems((prevState) => {
-      if (e.target.value === "0") prevState.splice(itemIndex, 1);
-      else prevState[itemIndex].quantity = Number(e.target.value);
-      return [...prevState];
+    dispatch({
+      type: "UPDATE_QUANTITY",
+      product: item.product,
+      quantity: Number(e.target.value),
     });
 
   return (
