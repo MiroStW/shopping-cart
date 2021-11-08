@@ -1,6 +1,6 @@
 import React from "react";
-import { Link, useRouteMatch } from "react-router-dom";
-import { CartItemType, Pokemon } from "types";
+import { Link } from "react-router-dom";
+import { Pokemon } from "types";
 
 interface ProductThumbPropType {
   product: Pokemon;
@@ -8,10 +8,8 @@ interface ProductThumbPropType {
 }
 
 const ProductThumb = ({ product, addToCartButton }: ProductThumbPropType) => {
-  const { url } = useRouteMatch();
-
   return (
-    <Link to={`${url}/${product.id}`}>
+    <Link to={`${product.id}`}>
       <div className="productThumb">
         <img src={product.imgUrl} alt="" />
         <p>{product.name}</p>

@@ -23,11 +23,6 @@ const Nav = () => {
           </span>
         </NavLink>
       </div>
-      <div className="navitem">
-        <NavLink to="/Z" className="vcenter">
-          Z
-        </NavLink>
-      </div>
     </div>
   );
 };

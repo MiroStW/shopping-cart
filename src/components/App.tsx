@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Main from "./Main";
 import Cart from "./Cart";
 import Products from "./Products";
@@ -16,21 +16,12 @@ const App = () => {
       <CartProvider>
         <Nav />
         <div id="container">
-          <Switch>
-            <Route path={`/`} exact>
-              <Main />
-            </Route>
-            <Route path={`/products`} exact>
-              <Products />
-            </Route>
-            <Route path={`/products/:id`}>
-              <ProductDetails />
-            </Route>
-            <Route path={`/cart`}>
-              <Cart />
-            </Route>
-            <Route path={`/Z`}></Route>
-          </Switch>
+          <Routes>
+            <Route path={`/`} element={<Main />} />
+            <Route path={`/products`} element={<Products />} />
+            <Route path={`/products/:id`} element={<ProductDetails />} />
+            <Route path={`/cart`} element={<Cart />} />
+          </Routes>
         </div>
       </CartProvider>
     </Router>
