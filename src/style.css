@@ -22,6 +22,11 @@ body {
   text-decoration: none;
 }
 
+.amazingLogo {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+
 #icon {
   background-image: url("./assets/react_logo.svg");
   height: 100%;

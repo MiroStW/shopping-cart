@@ -3,12 +3,11 @@ import logo from "../assets/shop_logo.jpeg";
 
 const Main = () => (
   <>
-    <h1>Shopping cart App</h1>
     <p>
       This is the homepage of an awesome online shop! We&apos;ve got a great
       name & slogan:
     </p>
-    <img src={logo} alt="" />
+    <img src={logo} alt="" className="amazingLogo" />
   </>
 );
 
