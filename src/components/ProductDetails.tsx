@@ -1,59 +1,23 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useParams } from "react-router-dom";
-import useGetPokemons from "./useGetPokemons";
-import useGetAbilities from "./useGetAbilities";
 import AddToCartButton from "./AddToCartButton";
-import { Pokemon } from "types";
+import { useGetPokemon } from "./useGetPokemon";
 
 const ProductDetails = () => {
   const { id }: any = useParams();
-  const {
-    isLoading: pokemonLoading,
-    error: pokemonError,
-    pokemons: [pokemon],
-  } = useGetPokemons([id]);
+  const { loading, error, products } = useGetPokemon([id], true);
+  const pokemon = products[0];
 
-  const {
-    isLoading: abilitiesLoading,
-    error: abilitiesError,
-    abilities,
-  } = useGetAbilities(
-    [
-      `https://pokeapi.co/api/v2/ability/65/`,
-      `https://pokeapi.co/api/v2/ability/105/`,
-    ]
-    // pokemon
-    //   ? pokemon.abilities.reduce(
-    //       (urls, currentAbility) => urls.concat(currentAbility.ability.url),
-    //       []
-    //     )
-    //   : null
-  );
-
-  // const [abilities, isLoadingAbilities] = useGetRemoteAbilitiesData(() =>
-  //   `https://pokeapi.co/api/v2/ability/65/`, `https://pokeapi.co/api/v2/ability/105/`
-  // );
-
-  useEffect(() => {
-    // if (pokemon)
-    // console.log(
-    // pokemon.abilities
-    //   .reduce(
-    //   (urls, currentAbility) => urls.concat(currentAbility.ability.url),
-    //   []
-    // )
-    // );
-  }, [pokemon]);
-  // TODO: USE custom hook for this
+  if (loading) return <p>Loading...</p>;
+  if (error) {
+    console.dir(error);
+    return <div>Oops, something went wrong, check console</div>;
+  }
 
   return (
     <>
-      {pokemonError && <p>Ooops, Pokemon not loaded: {pokemonError}</p>}
-      {abilitiesError && <p>Ooops, Abilities not loaded: {abilitiesError}</p>}
-
-      {!pokemonError && pokemonLoading ? (
-        <div>loading...</div>
-      ) : (
+      {" "}
+      {!loading && (
         <>
           <div>
             <Link to={`/products`}>
@@ -67,29 +31,25 @@ const ProductDetails = () => {
           <div className="productDetails">
             <div className="productSection">
               <div>
-                <img src={pokemon.imgUrl} alt="" className="productImg" />
+                <img src={pokemon.sprite} alt="" className="productImg" />
               </div>
               <div>
                 <p>
                   <b>Height:</b> {pokemon.height}
                 </p>
-                {abilitiesLoading ? (
-                  <div>loading...</div>
-                ) : (
-                  <div>
-                    {abilities &&
-                      abilities.map(
-                        (ability: { [index: string]: any }, i: number) => (
-                          <div key={i}>
-                            <p>
-                              <b>{ability.name}</b>
-                            </p>
-                            <p>{ability.effect}</p>
-                          </div>
-                        )
-                      )}
-                  </div>
-                )}
+
+                <div>
+                  {pokemon.abilities?.map(
+                    (ability: { [index: string]: any }, i: number) => (
+                      <div key={i}>
+                        <p>
+                          <b>{ability.name}</b>
+                        </p>
+                        <p>{ability.effect}</p>
+                      </div>
+                    )
+                  )}
+                </div>
                 <AddToCartButton product={pokemon} />
               </div>
             </div>
@@ -101,8 +61,3 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
-
-// Build individual card items for each of your products. Display an input field
-// on it, which lets a user manually type in how many items they want to buy.
-// Also, add an increment and decrement button next to it for fine-tuning. You
-// can also display a title for each product as well as an “Add To Cart” button.

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useGetRemoteData from "./useGetRemoteData";
+import useGetRemoteData from "./OLDuseGetRemoteData";
 import { Pokemon } from "types/index";
 
 const useGetPokemons = (ids: number[]) => {
@@ -17,7 +17,7 @@ const useGetPokemons = (ids: number[]) => {
         data.map((pokemon) => ({
           id: pokemon.id,
           name: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),
-          imgUrl: pokemon.sprites.front_default,
+          sprite: pokemon.sprites.front_default,
           height: pokemon.height,
           abilities: pokemon.abilities,
         }))

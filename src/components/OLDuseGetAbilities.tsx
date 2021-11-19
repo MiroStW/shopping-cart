@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import useGetRemoteData from "./useGetRemoteData";
+import useGetRemoteData from "./OLDuseGetRemoteData";
 
 interface Abilities {
   [index: string]: any;
@@ -12,13 +12,13 @@ type DataReturnType = {
   abilities: Abilities | null;
 };
 
-const useGetAbilities = (urls: string[]): DataReturnType => {
-  const { isLoading, error, data } = useGetRemoteData(urls);
+const useGetAbilities = (urls: string[] | null): DataReturnType => {
+  const { isLoading, error, data } = useGetRemoteData(urls ? urls : []);
   const [abilities, setAbilities] = useState<Abilities | null>(null);
 
   useEffect(() => {
     if (data) {
-      console.log(data);
+      // console.log(data);
       setAbilities(
         data.map((ability) => ({
           name: ability.names.filter(
@@ -35,6 +35,10 @@ const useGetAbilities = (urls: string[]): DataReturnType => {
   // useEffect(() => {
   //   console.log(abilities);
   // }, [abilities]);
+
+  // useEffect(() => {
+  //   console.log(urls);
+  // });
 
   return { isLoading, error, abilities };
 };

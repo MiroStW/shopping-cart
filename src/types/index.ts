@@ -9,11 +9,15 @@ export interface DataReturnType {
 }
 
 export interface Pokemon {
-  id: number;
   name: string;
-  imgUrl: string;
+  id: number;
   height: number;
-  abilities: {}[];
+  abilities?: {
+    id: number;
+    name: string;
+    effect: string;
+  }[];
+  sprite: string;
 }
 
 export interface CartItemType {

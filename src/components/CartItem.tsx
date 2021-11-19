@@ -7,7 +7,7 @@ const CartItem = ({ cartItem }: { cartItem: CartItemType }) => (
   <div className="cartItem">
     <div>
       <Link to={"/products/" + cartItem.product.id}>
-        <img src={cartItem.product.imgUrl} alt="" />
+        <img src={cartItem.product.sprite} alt="" />
       </Link>
     </div>
     <div>

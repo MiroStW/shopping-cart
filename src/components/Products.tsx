@@ -1,27 +1,30 @@
 import React from "react";
-import useGetProducts from "./useGetProducts";
 import ProductThumb from "./ProductThumb";
 import AddToCartButton from "./AddToCartButton";
+import { useGetPokemon } from "./useGetPokemon";
 
-const Products = () => {
-  const { isLoading, error, products } = useGetProducts(10);
+const Products = ({ ids }: { ids: number[] }) => {
+  const { loading, error, products } = useGetPokemon(ids);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) {
+    console.dir(error);
+
+    return <div>Oops, something went wrong, check console</div>;
+  }
 
   return (
     <>
-      <h1>Hello from Products</h1>
-      {error && <p>Oops, something went worng: {error}</p>}
+      <h1>Products</h1>
       <div className="productOverview">
-        {isLoading ? (
-          <div>loading...</div>
-        ) : (
-          products.map((product, i) => (
-            <ProductThumb
-              key={i}
-              product={product}
-              addToCartButton={<AddToCartButton product={product} />}
-            />
-          ))
-        )}
+        {products.map((product: any, i: number) => (
+          <ProductThumb
+            key={i}
+            product={product}
+            sprite={product.sprite}
+            addToCartButton={<AddToCartButton product={product} />}
+          />
+        ))}
       </div>
     </>
   );
@@ -29,11 +32,5 @@ const Products = () => {
 
 export default Products;
 
-// Build individual card items for each of your products. Display an input field
-// on it, which lets a user manually type in how many items they want to buy.
-// Also, add an increment and decrement button next to it for fine-tuning. You
-// can also display a title for each product as well as an “Add To Cart” button.
-
-// fetch products & list them
-// add router for individual product page component
-// add
+//possible addition: use graphQL pagination to paginate through all available
+//pokemons

@@ -5,13 +5,18 @@ import { Pokemon } from "types";
 interface ProductThumbPropType {
   product: Pokemon;
   addToCartButton: React.ReactNode;
+  sprite: string;
 }
 
-const ProductThumb = ({ product, addToCartButton }: ProductThumbPropType) => {
+const ProductThumb = ({
+  product,
+  addToCartButton,
+  sprite,
+}: ProductThumbPropType) => {
   return (
     <Link to={`${product.id}`}>
       <div className="productThumb">
-        <img src={product.imgUrl} alt="" />
+        <img src={sprite} alt="" />
         <p>{product.name}</p>
         <div>{addToCartButton}</div>
       </div>

@@ -6,9 +6,9 @@ const useGetRemoteData = ([...urls]): DataReturnType => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   useEffect(() => {
-    // if (!urls) {
-    //   return;
-    // }
+    if (!urls) {
+      return;
+    }
     // use urls?.forEach(...) instead!
     // console.log(urls);
     urls?.forEach((url) =>
@@ -69,6 +69,10 @@ const useGetRemoteData = ([...urls]): DataReturnType => {
   // useEffect(() => {
   //   if (data) console.log(data);
   // }, [data]);
+
+  // useEffect(() => {
+  //   console.log(urls);
+  // }, [urls]);
 
   return { isLoading, error, data };
 };
