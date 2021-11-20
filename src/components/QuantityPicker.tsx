@@ -1,5 +1,5 @@
 import { CartItemType } from "types";
-import { useCart } from "./cartContext";
+import { useCart } from "../API/cartContext";
 
 const QuantityPicker = ({ item }: { item: CartItemType }) => {
   const { dispatch } = useCart();

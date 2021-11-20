@@ -1,4 +1,3 @@
-import { useQuery } from "@apollo/client";
 import useGetPokemons from "./OLDuseGetPokemons";
 
 const useGetProducts = (count: number) => {

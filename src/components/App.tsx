@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Main from "./Main";
 import Cart from "./Cart";
 import Products from "./Products";
 import ProductDetails from "./ProductDetails";
 import Nav from "./Nav";
-import { CartProvider } from "./cartContext";
-import { pokemonClient } from "./ApolloClient";
+import { CartProvider } from "../API/cartContext";
+import { pokemonClient } from "../API/ApolloClient";
 import { ApolloProvider } from "@apollo/client";
 
 const App = () => {
-  // <Router basename="/shopping-cart">
   // set this dependant on environment?
+  // <Router basename="/shopping-cart">
 
   return (
     <Router>

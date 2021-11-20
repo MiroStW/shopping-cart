@@ -3,11 +3,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: ["./src/index.js", "./src/style.css"],
+  entry: ["./src/index.js", "./src/assets/style.css"],
   output: {
     filename: "[name].js", // filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, "build/"),
     publicPath: "/",
+    // publicPath: "/shopping-cart/",
     clean: true,
   },
   module: {

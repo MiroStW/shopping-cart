@@ -124,9 +124,9 @@ export const useGetPokemon = (
     }
   }, [data, sprites]);
 
-  useEffect(() => {
-    console.log(loading);
-  }, [loading]);
+  // useEffect(() => {
+  //   console.log(loading);
+  // }, [loading]);
 
   return { loading, error, products };
 };

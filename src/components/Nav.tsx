@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useCart } from "./cartContext";
+import { useCart } from "../API/cartContext";
 
 const Nav = () => {
   const { state } = useCart();

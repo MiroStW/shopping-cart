@@ -1,7 +1,7 @@
 import React from "react";
 import ProductThumb from "./ProductThumb";
 import AddToCartButton from "./AddToCartButton";
-import { useGetPokemon } from "./useGetPokemon";
+import { useGetPokemon } from "../API/useGetPokemon";
 
 const Products = ({ ids }: { ids: number[] }) => {
   const { loading, error, products } = useGetPokemon(ids);
