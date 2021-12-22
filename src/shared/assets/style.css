@@ -28,7 +28,7 @@ body {
 }
 
 #icon {
-  background-image: url("./react_logo.svg");
+  background-image: url("../../app/assets/react_logo.svg");
   height: 100%;
   background-repeat: no-repeat;
 }

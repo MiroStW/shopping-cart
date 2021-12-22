@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CartItemType } from "types";
+import { CartItemType } from "shared/types";
 import DeleteItemButton from "./DeleteItemButton";
 import QuantityPicker from "./QuantityPicker";
 

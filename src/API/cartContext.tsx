@@ -1,6 +1,6 @@
 import { func } from "prop-types";
 import * as React from "react";
-import { CartItemType, Pokemon } from "types";
+import { CartItemType, Pokemon } from "shared/types";
 
 type Action =
   | { type: "ADD_TO_CART"; product: Pokemon; quantity: number }

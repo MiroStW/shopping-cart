@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Main from "./Main";
-import Cart from "./Cart";
-import Products from "./Products";
-import ProductDetails from "./ProductDetails";
-import Nav from "./Nav";
-import { CartProvider } from "../API/cartContext";
-import { pokemonClient } from "../API/ApolloClient";
+import Main from "../domains/main/Main";
+import Cart from "../domains/cart/Cart";
+import Products from "../domains/products/Products";
+import ProductDetails from "../domains/products/ProductDetails";
+import Nav from "./components/Nav";
+import { CartProvider } from "../api/cartContext";
+import { pokemonClient } from "../api/ApolloClient";
 import { ApolloProvider } from "@apollo/client";
 
 const App = () => {

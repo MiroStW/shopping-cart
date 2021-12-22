@@ -1,6 +1,6 @@
 import React from "react";
-import { CartItemType } from "types";
-import { useCart } from "../API/cartContext";
+import { CartItemType } from "shared/types";
+import { useCart } from "../../../api/cartContext";
 
 const DeleteItemButton = ({ item }: { item: CartItemType }) => {
   const { dispatch } = useCart();

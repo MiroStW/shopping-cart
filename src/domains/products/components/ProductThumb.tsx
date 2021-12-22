@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Pokemon } from "types";
+import { Pokemon } from "shared/types";
 
 interface ProductThumbPropType {
   product: Pokemon;

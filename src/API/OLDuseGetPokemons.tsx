@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useGetRemoteData from "./OLDuseGetRemoteData";
-import { Pokemon } from "types/index";
+import { Pokemon } from "shared/types/index";
 
 const useGetPokemons = (ids: number[]) => {
   const { isLoading, error, data } = useGetRemoteData(

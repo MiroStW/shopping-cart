@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { DataReturnType } from "types/index";
+import { DataReturnType } from "shared/types/index";
 
 const useGetRemoteData = ([...urls]): DataReturnType => {
   const [data, setData] = useState<{}[] | null>(null);

@@ -1,6 +1,6 @@
 import React from "react";
-import { Pokemon } from "types";
-import { useCart } from "../API/cartContext";
+import { Pokemon } from "shared/types";
+import { useCart } from "../../../api/cartContext";
 
 const AddToCartButton = ({ product }: { product: Pokemon }) => {
   const { dispatch } = useCart();

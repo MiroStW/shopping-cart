@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import AddToCartButton from "./AddToCartButton";
-import { useGetPokemon } from "../API/useGetPokemon";
+import AddToCartButton from "./components/AddToCartButton";
+import { useGetPokemon } from "../../api/useGetPokemon";
 
 const ProductDetails = () => {
   const { id }: any = useParams();
