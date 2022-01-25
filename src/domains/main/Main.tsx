@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "./assets/shop_logo.jpeg";
+import style from "./assets/main.css";
 
 const Main = () => (
   <>
@@ -7,7 +8,7 @@ const Main = () => (
       This is the homepage of an awesome online shop! We&apos;ve got a great
       name & slogan:
     </p>
-    <img src={logo} alt="" className="amazingLogo" />
+    <img src={logo} alt="" className={style.amazingLogo} />
   </>
 );
 

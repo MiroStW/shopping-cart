@@ -1,5 +1,6 @@
 import { CartItemType } from "shared/types";
 import { useCart } from "../../../api/cartContext";
+import styles from "../assets/quantityPicker.css";
 
 const QuantityPicker = ({ item }: { item: CartItemType }) => {
   const { dispatch } = useCart();
@@ -12,7 +13,7 @@ const QuantityPicker = ({ item }: { item: CartItemType }) => {
     });
 
   return (
-    <span className="quantityPicker">
+    <span className={styles.quantityPicker}>
       <label htmlFor="quantity">Quantity: </label>
       <select
         name="quantity"

@@ -8,6 +8,7 @@ import Nav from "./components/Nav";
 import { CartProvider } from "../api/cartContext";
 import { pokemonClient } from "../api/ApolloClient";
 import { ApolloProvider } from "@apollo/client";
+import style from "./assets/app.css";
 
 const App = () => {
   // set this dependant on environment?
@@ -18,7 +19,7 @@ const App = () => {
       <CartProvider>
         <ApolloProvider client={pokemonClient}>
           <Nav />
-          <div id="container">
+          <div id={style.container}>
             <Routes>
               <Route path={`/`} element={<Main />} />
 

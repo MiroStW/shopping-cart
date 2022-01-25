@@ -2,6 +2,7 @@ import React from "react";
 import ProductThumb from "./components/ProductThumb";
 import AddToCartButton from "./components/AddToCartButton";
 import { useGetPokemon } from "../../api/useGetPokemon";
+import styles from "./assets/products.css";
 
 const Products = ({ ids }: { ids: number[] }) => {
   const { loading, error, products } = useGetPokemon(ids);
@@ -16,7 +17,7 @@ const Products = ({ ids }: { ids: number[] }) => {
   return (
     <>
       <h1>Products</h1>
-      <div className="productOverview">
+      <div className={styles.productOverview}>
         {products.map((product: any, i: number) => (
           <ProductThumb
             key={i}

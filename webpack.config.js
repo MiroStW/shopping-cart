@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: ["./src/index.js", "./src/shared/assets/style.css"],
+  entry: "./src/index.js",
   output: {
     filename: "[name].js", // filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, "build/"),
@@ -15,7 +15,18 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                localIdentName: "[path][name]__[local]",
+              },
+              importLoaders: 1,
+            },
+          },
+        ],
       },
       {
         test: /\.(jpg|png)$/,

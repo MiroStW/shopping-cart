@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import AddToCartButton from "./components/AddToCartButton";
 import { useGetPokemon } from "../../api/useGetPokemon";
+import styles from "./assets/productDetails.css";
 
 const ProductDetails = () => {
   const { id }: any = useParams();
@@ -28,30 +29,28 @@ const ProductDetails = () => {
             </Link>
           </div>
           <h1>{pokemon.name}</h1>
-          <div className="productDetails">
-            <div className="productSection">
-              <div>
-                <img src={pokemon.sprite} alt="" className="productImg" />
-              </div>
-              <div>
-                <p>
-                  <b>Height:</b> {pokemon.height}
-                </p>
+          <div className={styles.productSection}>
+            <div>
+              <img src={pokemon.sprite} alt="" className={styles.productImg} />
+            </div>
+            <div>
+              <p>
+                <b>Height:</b> {pokemon.height}
+              </p>
 
-                <div>
-                  {pokemon.abilities?.map(
-                    (ability: { [index: string]: any }, i: number) => (
-                      <div key={i}>
-                        <p>
-                          <b>{ability.name}</b>
-                        </p>
-                        <p>{ability.effect}</p>
-                      </div>
-                    )
-                  )}
-                </div>
-                <AddToCartButton product={pokemon} />
+              <div>
+                {pokemon.abilities?.map(
+                  (ability: { [index: string]: any }, i: number) => (
+                    <div key={i}>
+                      <p>
+                        <b>{ability.name}</b>
+                      </p>
+                      <p>{ability.effect}</p>
+                    </div>
+                  )
+                )}
               </div>
+              <AddToCartButton product={pokemon} />
             </div>
           </div>
         </>
