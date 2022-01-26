@@ -1,10 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,700;1,200;1,700&display=swap");
+@import url("reset.css");
+
 body {
   background: black;
-  margin: 0;
   color: white;
-  font-family: sans-serif;
+  font-family: "Roboto Mono", monospace;
   font-size: 16px;
   font-weight: 300;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+}
+
+p {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
 }
 
 a.active {
@@ -18,17 +32,24 @@ a {
   padding-bottom: 4px;
 }
 
-button {
+button,
+select {
   background-color: black;
   color: white;
+  padding: 1px 6px;
   border: white 1px solid;
-  border-radius: 4px;
-  line-height: 18px;
+  border-radius: 1px;
+  font-size: 13px;
 }
 
 button:hover {
   color: #61dafb;
   cursor: pointer;
+}
+
+select {
+  padding: 1px 0px;
+  font-family: inherit;
 }
 
 :global #root {

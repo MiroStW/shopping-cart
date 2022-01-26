@@ -3,6 +3,6 @@
   padding: 10px;
   margin-bottom: 10px;
   display: grid;
-  grid-template-columns: min-content max-content;
+  grid-template-columns: max-content max-content;
   grid-column-gap: 10px;
 }
