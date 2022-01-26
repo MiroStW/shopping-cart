@@ -10,7 +10,7 @@ const Cart = () => {
 
   return (
     <>
-      <h1>Hello from Cart</h1>
+      <h1>Cart</h1>
       {cartItems.length === 0 ? (
         <div>
           Your cart is empty :-( Add some <Link to="/products">products</Link>!
