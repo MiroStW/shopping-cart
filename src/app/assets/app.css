@@ -36,10 +36,13 @@ button,
 select {
   background-color: black;
   color: white;
-  padding: 1px 6px;
   border: white 1px solid;
   border-radius: 1px;
   font-size: 13px;
+}
+
+button {
+  padding: 1px 6px;
 }
 
 button:hover {
@@ -48,7 +51,6 @@ button:hover {
 }
 
 select {
-  padding: 1px 0px;
   font-family: inherit;
 }
 
@@ -59,4 +61,5 @@ select {
 
 #container {
   display: grid;
+  margin-bottom: 2em;
 }
