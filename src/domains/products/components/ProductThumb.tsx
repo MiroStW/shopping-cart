@@ -2,24 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Pokemon } from "shared/types";
 import styles from "../assets/productThumb.css";
+import AddToCartButton from "./AddToCartButton";
 
 interface ProductThumbPropType {
   product: Pokemon;
-  addToCartButton: React.ReactNode;
   sprite: string;
 }
 
-const ProductThumb = ({
-  product,
-  addToCartButton,
-  sprite,
-}: ProductThumbPropType) => {
+const ProductThumb = ({ product, sprite }: ProductThumbPropType) => {
   return (
     <Link to={`${product.id}`}>
       <div className={styles.productThumb}>
         <img src={sprite} alt="" />
         <p>{product.name}</p>
-        <div>{addToCartButton}</div>
+        <div>
+          <AddToCartButton product={product} />
+        </div>
       </div>
     </Link>
   );

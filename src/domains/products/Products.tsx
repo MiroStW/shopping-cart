@@ -1,8 +1,8 @@
 import React from "react";
 import ProductThumb from "./components/ProductThumb";
-import AddToCartButton from "./components/AddToCartButton";
-import { useGetPokemon } from "../../api/useGetPokemon";
+import { useGetPokemon } from "api/useGetPokemon";
 import styles from "./assets/products.css";
+import { Pokemon } from "shared/types";
 
 const Products = ({ ids }: { ids: number[] }) => {
   const { loading, error, products } = useGetPokemon(ids);
@@ -18,13 +18,8 @@ const Products = ({ ids }: { ids: number[] }) => {
     <>
       <h1>Products</h1>
       <div className={styles.productOverview}>
-        {products.map((product: any, i: number) => (
-          <ProductThumb
-            key={i}
-            product={product}
-            sprite={product.sprite}
-            addToCartButton={<AddToCartButton product={product} />}
-          />
+        {products.map((product: Pokemon, i: number) => (
+          <ProductThumb key={i} product={product} sprite={product.sprite} />
         ))}
       </div>
     </>
