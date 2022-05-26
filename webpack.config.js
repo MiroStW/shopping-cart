@@ -65,7 +65,6 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    // publicPath: "/odin_project/react/dist/",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
