@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Main from "../domains/main/Main";
-import Cart from "../domains/cart/Cart";
-import Products from "../domains/products/Products";
-import ProductDetails from "../domains/products/ProductDetails";
+import Main from "domains/main/Main";
+import Cart from "domains/cart/Cart";
+import Products from "domains/products/Products";
+import ProductDetails from "domains/products/ProductDetails";
 import Nav from "./components/Nav";
-import { CartProvider } from "../api/cartContext";
-import { pokemonClient } from "../api/ApolloClient";
+import { CartProvider } from "api/cartContext";
+import { pokemonClient } from "api/ApolloClient";
 import { ApolloProvider } from "@apollo/client";
 import style from "./assets/app.css";
 
