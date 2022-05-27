@@ -8,19 +8,21 @@ export interface DataReturnType {
     | null;
 }
 
+export interface Ability {
+  id: number;
+  name: string;
+  effect: string;
+}
+
 export interface Pokemon {
   name: string;
   id: number;
   height: number;
-  abilities?: {
-    id: number;
-    name: string;
-    effect: string;
-  }[];
+  abilities?: Ability[];
   sprite: string;
 }
 
-export interface CartItemType {
+export interface CartItem {
   product: Pokemon;
   quantity: number;
 }
