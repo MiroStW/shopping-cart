@@ -1,13 +1,12 @@
 import * as React from "react";
-import { CartItemType, Pokemon } from "shared/types";
+import { CartItem, Pokemon } from "shared/types";
 
 type Action =
   | { type: "ADD_TO_CART"; product: Pokemon; quantity: number }
   | { type: "UPDATE_QUANTITY"; product: Pokemon; quantity: number }
   | { type: "DELETE_ITEM"; product: Pokemon };
 type Dispatch = (action: Action) => void;
-type State = { cartItems: CartItemType[] };
-type CartProviderProps = { children: React.ReactNode };
+type State = { cartItems: CartItem[] };
 
 const CartStateContext = React.createContext<
   { state: State; dispatch: Dispatch } | undefined
@@ -79,7 +78,7 @@ function cartReducer(state: State, action: Action): State {
   }
 }
 
-function CartProvider({ children }: CartProviderProps) {
+function CartProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = React.useReducer(cartReducer, getLocalStorage());
   // NOTE: you *might* need to memoize this value
   // Learn more in http://kcd.im/optimize-context

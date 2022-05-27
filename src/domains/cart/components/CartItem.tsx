@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { CartItemType } from "shared/types";
+import { CartItem } from "shared/types";
 import DeleteItemButton from "./DeleteItemButton";
 import QuantityPicker from "./QuantityPicker";
 import styles from "../assets/cartItem.css";
 
-const CartItem = ({ cartItem }: { cartItem: CartItemType }) => (
+const CartItem = ({ cartItem }: { cartItem: CartItem }) => (
   <div className={styles.cartItem}>
     <div>
       <Link to={"/products/" + cartItem.product.id}>

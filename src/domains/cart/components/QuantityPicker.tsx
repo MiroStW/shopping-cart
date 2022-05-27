@@ -1,8 +1,8 @@
-import { CartItemType } from "shared/types";
+import { CartItem } from "shared/types";
 import { useCart } from "../../../api/cartContext";
 import styles from "../assets/quantityPicker.css";
 
-const QuantityPicker = ({ item }: { item: CartItemType }) => {
+const QuantityPicker = ({ item }: { item: CartItem }) => {
   const { dispatch } = useCart();
 
   const updateQuantity = (e: React.ChangeEvent<HTMLSelectElement>) =>
