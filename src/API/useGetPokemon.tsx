@@ -1,5 +1,6 @@
 import { ApolloError, gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
+import { Pokemon } from "shared/types";
 import { pokemonClient } from "./ApolloClient";
 
 export const GET_POKEMON = gql`
@@ -40,20 +41,8 @@ export const GET_SPRITE = gql`
   }
 `;
 
-interface pokemon {
-  name: string;
-  id: number;
-  height: number;
-  abilities?: {
-    id: number;
-    name: string;
-    effect: string;
-  }[];
-  sprite: string;
-}
-
 interface useGetPokemonReturnType {
-  products: pokemon[];
+  products: Pokemon[];
   loading: boolean;
   error?: ApolloError;
 }
@@ -66,7 +55,7 @@ export const useGetPokemon = (
     variables: { ids, withAbilities },
   });
   const [sprites, setSprites] = useState<{ id: number; sprite: string }[]>([]);
-  const [products, setProducts] = useState<pokemon[]>([]);
+  const [products, setProducts] = useState<Pokemon[]>([]);
   const [loading, setLoading] = useState(true);
 
   // load sprites
