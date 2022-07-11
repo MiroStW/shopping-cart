@@ -1,4 +1,5 @@
 .vscode
+.next
 /build
 /node_modules
 

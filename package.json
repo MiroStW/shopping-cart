@@ -7,9 +7,10 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
-    "build": "npx webpack",
-    "build:prod": "npx webpack --mode=production",
-    "serve": "webpack serve",
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start",
+    "lint": "next lint",
     "deploy": "gh-pages -d build"
   },
   "author": "",
@@ -53,10 +54,10 @@
     "core-js": "^3.15.2",
     "graphql": "^15.7.2",
     "i": "^0.3.6",
+    "next": "^12.2.0",
     "npm": "^8.12.1",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-router-dom": "^6.3.0"
+    "react-dom": "^18.1.0"
   },
   "jest": {
     "moduleNameMapper": {

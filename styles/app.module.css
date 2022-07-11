@@ -1,0 +1,10 @@
+#container {
+  display: grid;
+  margin-bottom: 2em;
+}
+
+.amazingLogo {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+  color: red;
+}
