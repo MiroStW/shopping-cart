@@ -1,29 +1,36 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useCart } from "../api/cartContext";
 import style from "../styles/nav.module.css";
 
 const Nav = () => {
-  const { state } = useCart();
+  const {
+    state: { cartItems },
+  } = useCart();
+
+  // const [quantity, setQuantity] = useState(0);
+
+  // useEffect(() => {
+  //   setQuantity(state.cartItems.reduce((sum, item) => sum + item.quantity, 0));
+  // }, [state]);
+
   return (
     <div id={style.nav}>
       <Link href="/" id={style.logo}>
         <div id={style.icon}>&lt;shopping-cart-app&gt;</div>
       </Link>
-      {/* <Link href="/" id={style.logo}>
-        <div className={style.vcenter}></div>
-      </Link> */}
+
       <div className={style.navitem}>
-        <Link href={"/products"} className={style.vcenter}>
-          Products
+        <Link href="/products">
+          <div>Products</div>
         </Link>
       </div>
       <div className={style.navitem}>
-        <Link href="/cart" className={style.vcenter}>
+        <Link href="/cart">
           <div>
             Cart
             <span>
-              {state.cartItems.reduce((sum, item) => sum + item.quantity, 0)}
+              {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
             </span>
           </div>
         </Link>
