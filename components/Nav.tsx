@@ -8,7 +8,7 @@ const Nav = () => {
   return (
     <div id={style.nav}>
       <Link href="/" id={style.logo}>
-        <div id={style.icon}>Shopping-cart-app</div>
+        <div id={style.icon}>&lt;shopping-cart-app&gt;</div>
       </Link>
       {/* <Link href="/" id={style.logo}>
         <div className={style.vcenter}></div>

@@ -9,6 +9,7 @@
 #icon {
   background-image: url("/images/react_logo.svg");
   background-repeat: no-repeat;
+  overflow: hidden;
   flex: 1;
   height: 100%;
   padding-left: 50px;
