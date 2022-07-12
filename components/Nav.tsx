@@ -4,15 +4,15 @@ import { useCart } from "../api/cartContext";
 import style from "../styles/nav.module.css";
 
 const Nav = () => {
+  const [isSSR, setIsSSR] = useState(true);
+
   const {
     state: { cartItems },
   } = useCart();
 
-  // const [quantity, setQuantity] = useState(0);
-
-  // useEffect(() => {
-  //   setQuantity(state.cartItems.reduce((sum, item) => sum + item.quantity, 0));
-  // }, [state]);
+  useEffect(() => {
+    setIsSSR(false);
+  }, []);
 
   return (
     <div id={style.nav}>
@@ -27,12 +27,13 @@ const Nav = () => {
       </div>
       <div className={style.navitem}>
         <Link href="/cart">
-          <div>
+          <a>
             Cart
             <span>
-              {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
+              {!isSSR &&
+                cartItems.reduce((sum, item) => sum + item.quantity, 0)}
             </span>
-          </div>
+          </a>
         </Link>
       </div>
     </div>
