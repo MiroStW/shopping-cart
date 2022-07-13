@@ -7,14 +7,18 @@ import { CartItemType } from "../types";
 const CartItem = ({ cartItem }: { cartItem: CartItemType }) => (
   <div className={styles.cartItem}>
     <div>
-      <Link href={"/products/" + cartItem.product.id}>
-        <img src={cartItem.product.sprite} alt="" />
+      <Link href={"/products/" + cartItem.product.id} passHref>
+        <a>
+          <img src={cartItem.product.sprite} alt="" />
+        </a>
       </Link>
     </div>
     <div>
       <p>
-        <Link href={"/products/" + cartItem.product.id}>
-          <b>{cartItem.product.name}</b>
+        <Link href={"/products/" + cartItem.product.id} passHref>
+          <a>
+            <b>{cartItem.product.name}</b>
+          </a>
         </Link>
       </p>
       <p>
