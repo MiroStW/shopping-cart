@@ -3,7 +3,9 @@ import { Pokemon } from "shared/types";
 import { useCart } from "../api/cartContext";
 
 const AddToCartButton = ({ product }: { product: Pokemon }) => {
-  const { dispatch } = useCart();
+  const {
+    context: { dispatch },
+  } = useCart();
 
   const clickHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();

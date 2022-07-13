@@ -3,7 +3,9 @@ import { CartItem } from "shared/types";
 import { useCart } from "../api/cartContext";
 
 const DeleteItemButton = ({ item }: { item: CartItem }) => {
-  const { dispatch } = useCart();
+  const {
+    context: { dispatch },
+  } = useCart();
 
   return (
     <button

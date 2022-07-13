@@ -3,7 +3,9 @@ import { useCart } from "../api/cartContext";
 import styles from "../styles/quantityPicker.module.css";
 
 const QuantityPicker = ({ item }: { item: CartItem }) => {
-  const { dispatch } = useCart();
+  const {
+    context: { dispatch },
+  } = useCart();
 
   const updateQuantity = (e: React.ChangeEvent<HTMLSelectElement>) =>
     dispatch({
