@@ -5,7 +5,10 @@ import style from "../styles/nav.module.css";
 
 const Nav = () => {
   const {
-    state: { cartItems },
+    context: {
+      state: { cartItems },
+    },
+    isLoading,
   } = useCart();
 
   return (
@@ -21,12 +24,14 @@ const Nav = () => {
       </div>
       <div className={style.navitem}>
         <Link href="/cart">
-          <a>
+          <div>
             Cart
-            <span>
-              {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
-            </span>
-          </a>
+            {!isLoading && (
+              <span>
+                {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
+              </span>
+            )}
+          </div>
         </Link>
       </div>
     </div>

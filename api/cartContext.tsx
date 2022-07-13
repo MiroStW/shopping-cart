@@ -98,19 +98,17 @@ function CartProvider({ children }: { children: React.ReactNode }) {
 function useCart() {
   const context = useContext(CartStateContext);
 
-  const [isSSR, setIsSSR] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsSSR(false);
+    setIsLoading(false);
   }, []);
 
   if (context === undefined) {
     throw new Error("useCart must be used within a CartProvider");
   }
 
-  if (isSSR) return { state: { cartItems: [] }, dispatch: () => {} };
-
-  return context;
+  return { context, isLoading };
 }
 
 export { CartProvider, useCart };

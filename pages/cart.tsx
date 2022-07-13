@@ -6,8 +6,13 @@ import Nav from "../components/Nav";
 
 const Cart = () => {
   const {
-    state: { cartItems },
+    context: {
+      state: { cartItems },
+    },
+    isLoading,
   } = useCart();
+
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <>
