@@ -5,6 +5,7 @@ module.exports = {
     "jest/globals": true,
   },
   extends: [
+    "plugin:next",
     "airbnb-base",
     "prettier",
     "eslint:recommended",
