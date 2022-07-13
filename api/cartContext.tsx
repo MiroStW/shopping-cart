@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartItemType, PokemonType } from "../types";
 
 type Action =
@@ -95,10 +96,20 @@ function CartProvider({ children }: { children: React.ReactNode }) {
 }
 
 function useCart() {
-  const context = React.useContext(CartStateContext);
+  const context = useContext(CartStateContext);
+
+  const [isSSR, setIsSSR] = useState(true);
+
+  useEffect(() => {
+    setIsSSR(false);
+  }, []);
+
   if (context === undefined) {
     throw new Error("useCart must be used within a CartProvider");
   }
+
+  if (isSSR) return { state: { cartItems: [] }, dispatch: () => {} };
+
   return context;
 }
 

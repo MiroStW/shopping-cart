@@ -4,15 +4,9 @@ import { useCart } from "../api/cartContext";
 import style from "../styles/nav.module.css";
 
 const Nav = () => {
-  const [isSSR, setIsSSR] = useState(true);
-
   const {
     state: { cartItems },
   } = useCart();
-
-  useEffect(() => {
-    setIsSSR(false);
-  }, []);
 
   return (
     <div id={style.nav}>
@@ -30,8 +24,7 @@ const Nav = () => {
           <a>
             Cart
             <span>
-              {!isSSR &&
-                cartItems.reduce((sum, item) => sum + item.quantity, 0)}
+              {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
             </span>
           </a>
         </Link>
