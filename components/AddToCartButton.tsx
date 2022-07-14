@@ -1,4 +1,3 @@
-import React from "react";
 import { useCart } from "../api/cartContext";
 import { PokemonType } from "../types";
 

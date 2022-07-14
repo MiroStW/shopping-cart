@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
 import { useCart } from "../api/cartContext";
 import style from "../styles/nav.module.css";
 
