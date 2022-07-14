@@ -1,4 +1,3 @@
-import React from "react";
 import ProductThumb from "../../components/ProductThumb";
 import styles from "../../styles/products.module.css";
 import { useGetPokemon } from "../../api/useGetPokemon";
