@@ -1,8 +1,8 @@
 import React from "react";
-import { Pokemon } from "shared/types";
 import { useCart } from "../api/cartContext";
+import { PokemonType } from "../types";
 
-const AddToCartButton = ({ product }: { product: Pokemon }) => {
+const AddToCartButton = ({ product }: { product: PokemonType }) => {
   const {
     context: { dispatch },
   } = useCart();

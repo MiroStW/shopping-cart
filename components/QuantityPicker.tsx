@@ -1,8 +1,8 @@
-import { CartItem } from "shared/types";
 import { useCart } from "../api/cartContext";
 import styles from "../styles/quantityPicker.module.css";
+import { CartItemType } from "../types";
 
-const QuantityPicker = ({ item }: { item: CartItem }) => {
+const QuantityPicker = ({ item }: { item: CartItemType }) => {
   const {
     context: { dispatch },
   } = useCart();

@@ -1,11 +1,11 @@
 import Link from "next/link";
 import React from "react";
-import { Pokemon } from "shared/types";
 import styles from "../styles/productThumb.module.css";
+import { PokemonType } from "../types";
 import AddToCartButton from "./AddToCartButton";
 
 interface ProductThumbPropType {
-  product: Pokemon;
+  product: PokemonType;
   sprite: string;
 }
 
