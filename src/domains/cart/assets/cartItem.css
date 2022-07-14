@@ -1,8 +1,0 @@
-.cartItem {
-  border: 1px white dashed;
-  padding: 10px;
-  margin-bottom: 10px;
-  display: grid;
-  grid-template-columns: max-content max-content;
-  grid-column-gap: 10px;
-}

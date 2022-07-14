@@ -1,5 +1,0 @@
-.productOverview {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 122px);
-  gap: 15px;
-}
