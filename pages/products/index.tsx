@@ -1,10 +1,10 @@
 import React from "react";
 import ProductThumb from "../../components/ProductThumb";
 import styles from "../../styles/products.module.css";
-import { Pokemon } from "shared/types";
 import { useGetPokemon } from "../../api/useGetPokemon";
 import Nav from "../../components/Nav";
 import { GetServerSideProps } from "next";
+import { PokemonType } from "../../types";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const ids = Array.from({ length: 10 }, () =>
@@ -34,7 +34,7 @@ const Products = ({ ids }: { ids: number[] }) => {
         <p>Loading...</p>
       ) : (
         <div className={styles.productOverview}>
-          {products.map((product: Pokemon, i: number) => (
+          {products.map((product: PokemonType, i: number) => (
             <ProductThumb key={i} product={product} sprite={product.sprite} />
           ))}
         </div>
