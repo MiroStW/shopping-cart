@@ -1,7 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
-import ProductDetails from "domains/products/ProductDetails";
 import Nav from "../components/Nav";
 import style from "../styles/app.module.css";
 import Script from "next/script";
