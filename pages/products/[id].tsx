@@ -5,12 +5,11 @@ import styles from "../../styles/productDetails.module.css";
 import AddToCartButton from "../../components/AddToCartButton";
 import Nav from "../../components/Nav";
 
-const product = ({ id }: { id: number }) => {
-  if (isNaN(id)) return <p>Invalid id</p>;
-
+const Product = ({ id }: { id: number }) => {
   const { loading, error, products } = useGetPokemon([id], true);
   const pokemon = products[0];
 
+  if (Number.isNaN(id)) return <p>Invalid id</p>;
   if (loading) return <p>Loading...</p>;
   if (error) {
     console.dir(error);
@@ -58,7 +57,7 @@ const product = ({ id }: { id: number }) => {
   );
 };
 
-export default product;
+export default Product;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const ids = Array.from({ length: 897 }, (e, i) => (i + 1).toString());
@@ -73,7 +72,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
-      id: parseInt(params!.id as string),
+      id: parseInt(params?.id as string, 10),
     },
   };
 };

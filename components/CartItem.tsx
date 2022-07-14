@@ -1,13 +1,13 @@
+import Link from "next/link";
 import DeleteItemButton from "./DeleteItemButton";
 import QuantityPicker from "./QuantityPicker";
 import styles from "../styles/cartItem.module.css";
-import Link from "next/link";
 import { CartItemType } from "../types";
 
 const CartItem = ({ cartItem }: { cartItem: CartItemType }) => (
   <div className={styles.cartItem}>
     <div>
-      <Link href={"/products/" + cartItem.product.id} passHref>
+      <Link href={`/products/${cartItem.product.id}`} passHref>
         <a>
           <img src={cartItem.product.sprite} alt="" />
         </a>
@@ -15,7 +15,7 @@ const CartItem = ({ cartItem }: { cartItem: CartItemType }) => (
     </div>
     <div>
       <p>
-        <Link href={"/products/" + cartItem.product.id} passHref>
+        <Link href={`/products/${cartItem.product.id}`} passHref>
           <a>
             <b>{cartItem.product.name}</b>
           </a>

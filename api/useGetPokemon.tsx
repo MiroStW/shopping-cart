@@ -49,7 +49,7 @@ interface useGetPokemonReturnType {
 
 export const useGetPokemon = (
   ids: number[],
-  withAbilities: boolean = false
+  withAbilities = false
 ): useGetPokemonReturnType => {
   const { loading: loadingPokemon, error, data } = useQuery(GET_POKEMON, {
     variables: { ids, withAbilities },

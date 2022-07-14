@@ -8,7 +8,7 @@ const AddToCartButton = ({ product }: { product: PokemonType }) => {
 
   const clickHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    dispatch({ type: "ADD_TO_CART", product: product, quantity: 1 });
+    dispatch({ type: "ADD_TO_CART", product, quantity: 1 });
   };
 
   return <button onClick={(e) => clickHandler(e)}>Add to cart</button>;

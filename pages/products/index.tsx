@@ -1,8 +1,8 @@
+import { GetServerSideProps } from "next";
 import ProductThumb from "../../components/ProductThumb";
 import styles from "../../styles/products.module.css";
 import { useGetPokemon } from "../../api/useGetPokemon";
 import Nav from "../../components/Nav";
-import { GetServerSideProps } from "next";
 import { PokemonType } from "../../types";
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -44,5 +44,5 @@ const Products = ({ ids }: { ids: number[] }) => {
 
 export default Products;
 
-//possible addition: use graphQL pagination to paginate through all available
-//pokemons
+// possible addition: use graphQL pagination to paginate through all available
+// pokemons

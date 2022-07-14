@@ -76,9 +76,9 @@ function cartReducer(state: State, action: Action): State {
         ),
       };
     }
-    // default: {
-    //   throw new Error(`Unhandled action type: ${action.type}`);
-    // }
+    default: {
+      throw new Error(`Unhandled action type`);
+    }
   }
 }
 

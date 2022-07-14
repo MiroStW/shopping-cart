@@ -1,16 +1,21 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Nav from "../components/Nav";
-import style from "../styles/app.module.css";
 import Script from "next/script";
 import Image from "next/image";
+import Nav from "../components/Nav";
+import style from "../styles/app.module.css";
 
 const App: NextPage = () => {
   return (
     <>
       <Head>
-        {/* Start Single Page Apps for GitHub Pages */}
-        {/* // Single Page Apps for GitHub Pages
+        <meta charSet="UTF-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Shopping cart app</title>
+      </Head>
+      {/* Start Single Page Apps for GitHub Pages */}
+      {/* // Single Page Apps for GitHub Pages
             // MIT License
             // https://github.com/rafgraph/spa-github-pages
             // This script checks to see if a redirect is present in the query string,
@@ -20,8 +25,13 @@ const App: NextPage = () => {
             // When the single page app is loaded further down in this file,
             // the correct url will be waiting in the browser's history for
             // the single page app to route accordingly. */}
-        <Script
-          dangerouslySetInnerHTML={{
+      <Script
+        id="spa-github-pages"
+        src="https://rafgraph.github.io/spa-github-pages/spa-github-pages.js"
+      >
+        <>
+          dangerouslySetInnerHTML=
+          {{
             __html: `
             (function (l) {
               if (l.search[1] === "/") {
@@ -41,14 +51,9 @@ const App: NextPage = () => {
             })(window.location);
             `,
           }}
-        ></Script>
-        {/* End Single Page Apps for GitHub Pages */}
-
-        <meta charSet="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Shopping cart app</title>
-      </Head>
+        </>
+      </Script>
+      {/* End Single Page Apps for GitHub Pages */}
 
       <Nav />
       <div id={style.container}>

@@ -9,6 +9,7 @@ const DeleteItemButton = ({ item }: { item: CartItemType }) => {
   return (
     <button
       onClick={() => {
+        // eslint-disable-next-line no-restricted-globals
         if (confirm("Really delete cart item?"))
           dispatch({ type: "DELETE_ITEM", product: item.product });
       }}
