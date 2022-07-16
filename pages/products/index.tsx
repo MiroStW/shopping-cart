@@ -5,17 +5,6 @@ import { useGetPokemon } from "../../api/useGetPokemon";
 import Nav from "../../components/Nav";
 import { PokemonType } from "../../types";
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const ids = Array.from({ length: 10 }, () =>
-    Math.floor(Math.random() * 897 + 1)
-  );
-  return {
-    props: {
-      ids,
-    },
-  };
-};
-
 const Products = ({ ids }: { ids: number[] }) => {
   const { loading, error, products } = useGetPokemon(ids);
 
@@ -32,17 +21,31 @@ const Products = ({ ids }: { ids: number[] }) => {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className={styles.productOverview}>
-          {products.map((product: PokemonType, i: number) => (
-            <ProductThumb key={i} product={product} sprite={product.sprite} />
-          ))}
-        </div>
+        <>
+          <p>This Reload the page to fetch some other random pokemons.</p>
+          <div className={styles.productOverview}>
+            {products.map((product: PokemonType, i: number) => (
+              <ProductThumb key={i} product={product} sprite={product.sprite} />
+            ))}
+          </div>
+        </>
       )}
     </>
   );
 };
 
 export default Products;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const ids = Array.from({ length: 30 }, () =>
+    Math.floor(Math.random() * 897 + 1)
+  );
+  return {
+    props: {
+      ids,
+    },
+  };
+};
 
 // possible addition: use graphQL pagination to paginate through all available
 // pokemons
