@@ -1,0 +1,55 @@
+#logo {
+  display: grid;
+  grid-template-columns: 35px max-content;
+  gap: 10px;
+  padding: 4px;
+  text-decoration: none;
+}
+
+#icon {
+  background-image: url("/images/react_logo.svg");
+  background-repeat: no-repeat;
+  overflow: hidden;
+  flex: 1;
+  height: 100%;
+  padding-left: 50px;
+  color: #61dafb;
+  font-weight: 700;
+}
+
+#nav {
+  border-bottom: 1px white dashed;
+  display: flex;
+  align-items: center;
+  height: 35px;
+  line-height: 35px;
+  margin: 0 0 15px 0;
+  padding: 10px 10px 15px 5px;
+}
+
+.navitem {
+  flex: 1;
+  border-top: 2px transparent solid;
+  text-align: center;
+  padding: 0 5px;
+}
+
+.navitem:hover {
+  border-color: #61dafb;
+}
+.navitem div {
+  cursor: pointer;
+}
+
+.navitem span {
+  border-radius: 10px;
+  padding: 1px 4px;
+  font-size: 10px;
+  background-color: red;
+  color: white;
+  position: relative;
+  top: -8px;
+  left: -5px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 65%);
+}

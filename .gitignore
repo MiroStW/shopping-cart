@@ -1,6 +1,11 @@
 .vscode
+.next
 /build
 /node_modules
+/out
+
+.serverless
+.serverless_nextjs
 
 ### macOS ###
 # General
