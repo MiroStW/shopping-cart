@@ -1,13 +1,3 @@
-export interface DataReturnType {
-  isLoading: boolean;
-  error: string | null;
-  data:
-    | {
-        [index: string]: any;
-      }[]
-    | null;
-}
-
 export interface AbilityType {
   id: number;
   name: string;
