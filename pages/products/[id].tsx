@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { useGetPokemon } from "../../api/useGetPokemon";
 import styles from "../../styles/productDetails.module.css";
 import AddToCartButton from "../../components/AddToCartButton";
@@ -31,7 +32,7 @@ const Product = ({ id }: { id: number }) => {
           <h1>{pokemon.name}</h1>
           <div className={styles.productSection}>
             <div>
-              <img src={pokemon.sprite} alt="" className={styles.productImg} />
+              <Image src={pokemon.sprite} width="174" height="174" />
             </div>
             <div>
               <p>

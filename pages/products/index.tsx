@@ -25,7 +25,7 @@ const Products = ({ ids }: { ids: number[] }) => {
           <p>This Reload the page to fetch some other random pokemons.</p>
           <div className={styles.productOverview}>
             {products.map((product: PokemonType, i: number) => (
-              <ProductThumb key={i} product={product} sprite={product.sprite} />
+              <ProductThumb key={i} product={product} />
             ))}
           </div>
         </>

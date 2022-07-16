@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/productThumb.module.css";
 import { PokemonType } from "../types";
@@ -5,14 +6,13 @@ import AddToCartButton from "./AddToCartButton";
 
 interface ProductThumbPropType {
   product: PokemonType;
-  sprite: string;
 }
 
-const ProductThumb = ({ product, sprite }: ProductThumbPropType) => {
+const ProductThumb = ({ product }: ProductThumbPropType) => {
   return (
     <Link href={`products/${product.id}`}>
       <div className={styles.productThumb}>
-        <img src={sprite} alt="" />
+        <Image src={product.sprite} width="96" height="96" />
         <p>{product.name}</p>
         <div>
           <AddToCartButton product={product} />

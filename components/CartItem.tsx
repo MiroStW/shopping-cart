@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import DeleteItemButton from "./DeleteItemButton";
 import QuantityPicker from "./QuantityPicker";
 import styles from "../styles/cartItem.module.css";
@@ -9,7 +10,7 @@ const CartItem = ({ cartItem }: { cartItem: CartItemType }) => (
     <div>
       <Link href={`/products/${cartItem.product.id}`} passHref>
         <a>
-          <img src={cartItem.product.sprite} alt="" />
+          <Image src={cartItem.product.sprite} width="96" height="96" />
         </a>
       </Link>
     </div>
