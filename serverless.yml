@@ -1,0 +1,8 @@
+org: flair2k
+shopping-cart:
+  component: "@sls-next/serverless-component" # use latest version
+  inputs:
+    AccelerateConfiguration:
+      AccelerationStatus: Enabled
+  provider:
+    region: eu-central-1
