@@ -100,6 +100,7 @@ function useCart() {
 
   const [isLoading, setIsLoading] = useState(true);
 
+  // Only access cartContext when the page is loaded
   useEffect(() => {
     setIsLoading(false);
   }, []);
