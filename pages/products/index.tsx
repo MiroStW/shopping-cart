@@ -22,7 +22,10 @@ const Products = ({ ids }: { ids: number[] }) => {
         <p>Loading...</p>
       ) : (
         <>
-          <p>This Reload the page to fetch some other random pokemons.</p>
+          <p>
+            This page is server-side-rendered. Reload to fetch some other random
+            pokemons. Detail pages of Pokemons in viewport will be prefetched.
+          </p>
           <div className={styles.productOverview}>
             {products.map((product: PokemonType, i: number) => (
               <ProductThumb key={i} product={product} />

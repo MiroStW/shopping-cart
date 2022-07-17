@@ -30,6 +30,10 @@ const Product = ({ id }: { id: number }) => {
             </Link>
           </div>
           <h1>{pokemon.name}</h1>
+          <p>
+            This page is statically generated without requiring additional API
+            calls.
+          </p>
           <div className={styles.productSection}>
             <div>
               <Image src={pokemon.sprite} width="174" height="174" />
